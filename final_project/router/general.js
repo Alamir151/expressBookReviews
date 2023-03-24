@@ -55,7 +55,7 @@ public_users.get('/author/:author', function (req, res) {
 
 // Get all books based on title
 public_users.get('/title/:title', function (req, res) {
-  const title = books.find((book) => book.title === req.params.title);
+  const title = books.filter((book) => book.title === req.params.title);
   if (!title) {
     return Promise.reject({ status: 404, message: 'Books not found' });
   }
